@@ -1,4 +1,4 @@
-from add_rules import geral
+from add_rules import add_rules
 from parts import Parte
 
 types_geral = {'Locação': ('Locatário','Locador'),
@@ -23,7 +23,7 @@ def receive_data(n):
         profissao = str(input('Profissão: ->')).title().strip()
         cpf = int(input('CPF: ->'))
         residencia = str(input('Residencia: ->')).title().strip()
-        person = Parte(n, nome, nacionalidade, es_civil, profissao, cpf, residencia).qualific
+        person = Parte(n, nome, nacionalidade, es_civil, profissao, cpf, residencia)
         contract.append(person)
 
 
@@ -47,7 +47,6 @@ def receive_model():
             receive_data(n[0])
             print(f'Agora o {n[1]}')
             receive_data(n[1])
-            print(contract)
             return show()
         else:
             print('Esse modelo não está cadastrado.')
@@ -62,9 +61,8 @@ def welcome():
             pass
         elif type_of_contract == 2:
             receive_model()
-            for n in geral():
+            for n in add_rules():
                 contract.append(n) 
-
             break
         elif type_of_contract == 9:
             break
@@ -74,8 +72,9 @@ def welcome():
 
 
 def app():
-    welcome()
-    show()
+    while True:
+        welcome()
+        show()
 
 
 

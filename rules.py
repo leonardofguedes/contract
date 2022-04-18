@@ -11,7 +11,6 @@ class Rules:
         self.__place = place
 
 
-
     def object(self):
         return f'OBJETO: As partes ajustam contrato de {self.__object}.'
 
@@ -30,6 +29,7 @@ class Rules:
 
     def __str__(self):
         return self.__object, self.__time, self.__fee, self.__place
+
 
 class Rent(Rules):
 
